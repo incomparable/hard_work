@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+
+<div class="container">
+  <!--<h2><center>Sign In To Your Account</center></h2>-->
+ <form name="LoginForm" action="" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+        <div class="control-group">
+            <label style="position:absolute;height:50px;width:270px;left:140px;top:113px;font-size:25px;" class="control-label" for="username">Username </label>
+            <div class="controls">
+                <input style="border:1px solid;position:absolute;height:50px;width:270px;left:270px;top:106px;font-size:20px;" type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label style="position:absolute;height:50px;width:300pxpx;top:210px;left:140px;font-size:25px;" class="control-label" for="password">Password</label>
+            <div class="controls">
+                <input style="border:1px solid;position:absolute;height:50px;width:270px;top:206px;left:270px;font-size:20px;" type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button style="border:1px solid;position:absolute;height:45px;width:100px;top:300px;left:353px;font-size:20px;" type="submit" class="btn">Login</button>
+            </div>
+        </div>
+        </form><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+
+
+{% include 'footer.html' %}
