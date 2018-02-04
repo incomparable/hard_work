@@ -3,64 +3,46 @@
 
 <div class="container"><hr><br><br><br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
-    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+    <link rel="stylesheet" href="{% static 'css/chart.css' %}">
+
 
 <script type="text/javascript">
     $.ajax({
         url: "/todo/ajax/data/",
-
         type:"GET",
         contentType: "application/json",
-
         data: {"todo": "todo"},
         dataType: "json",
 
         success: function (data) {
+        console.log(data);
+        var dataPoints = [];
 
-     for(var i=0; i< data.length; i++)
-     {
+        for(var i=0; i< data.length; i++)
+        {
         var item = data[i];
-//        console.log("Title: " + item.title + ", date: " + item.TimeStamp);
+        console.log("Title: " + item.title + ", date: " + item.create_at);
+        dataPoints.push({ x: new Date(item.create_at), y: Math.floor((Math.random() * 100) + 1) });
+        }
 
-            alert("Title :" + item.title + ", Id: " + item.id);
-            }
-        },
+        var chart = new CanvasJS.Chart("chartContainer",
+        {
+	    title: {
+				text: "User Chart"
+				},
+
+				data:
+				[{type: "line",
+				dataPoints: dataPoints}]
+				});
+		chart.render();
+     },
 
     });
 </script>
 
-
-<!--<script type="text/javascript">-->
-    <!--function handleChartDataFromServer(data)-->
-    <!--{-->
-     <!--var items = data._items;-->
-     <!--console.log("no. of items: " + items.length);-->
-     <!--var dataPoints = [];-->
-     <!--for(var i=0; i< items.length; i++)-->
-     <!--{-->
-        <!--var item = items[i];-->
-        <!--console.log("Title: " + item.title + ", date: " + item.TimeStamp);-->
-
-        <!--dataPoints.push({ x: new Date(item.TimeStamp), y: Math.floor((Math.random() * 100) + 1) });-->
-        <!--}-->
-     <!--var chart = new CanvasJS.Chart("chartContainer",-->
-     <!--{-->
-       <!--title: {-->
-            <!--text: "Survey Chart"-->
-            <!--},-->
-            <!--data:-->
-            <!--[{type: "line",-->
-            <!--dataPoints: dataPoints}]-->
-            <!--});-->
-      <!--chart.render();-->
-   <!--}-->
-      <!--$.get("https://fathomless-crag-93337.herokuapp.com/api/survey", function(data, status)-->
-      <!--{-->
-        <!--handleChartDataFromServer(data);-->
-        <!--});-->
-<!--</script>-->
+<script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+<div id="chartContainer" style="height: 400px; width: 100%;"></div>
 
 </div>
-
 {% include 'footer.html' %}

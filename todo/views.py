@@ -122,6 +122,7 @@ def index(request):
 
 def ajax_data(request):
     todo = Todo1.objects.all().values()
+    # todo = auth_user.objects.all().values()
     data = list(todo)
     print"******************", data
 
