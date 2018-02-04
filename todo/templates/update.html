@@ -10,9 +10,10 @@
       <label class="control-label col-sm-1"></label>
       <label class="control-label col-sm-2" for="id">Id:</label>
       <div class="col-sm-6">
-          <select class="form-control" id="id" name="id">
+          <select class="form-control" id="id" required="">
             {% for todo in todos%}
             <option value="{{todo.id}}">{{todo.id}}</option>
+
             {% endfor %}
           </select>
       </div>

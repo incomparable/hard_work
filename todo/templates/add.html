@@ -3,7 +3,7 @@
 <div class="container">
   <h2 style="color:grey;">Add Todo</h2><hr><br><br><br><br>
   <form class="form-horizontal" method="post">
-      {% csrf_token %}
+    {% csrf_token %}
 
     <div class="form-group">
       <label class="control-label col-sm-1"></label>
@@ -31,8 +31,5 @@
     </div>
   </form>
 </div>
-
-
-
 
 {% include 'footer.html' %}

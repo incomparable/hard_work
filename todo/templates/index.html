@@ -2,12 +2,26 @@
   <div class="container">
 
   <h2 style="color:grey;">Show Todos</h2><hr><br><br><br><br>
+<form>
+  <div class="form-group">
+      <label class="control-label col-sm-2"></label>
+      <label class="control-label col-sm-1" for="title">Title:</label>
+      <div class="col-sm-5">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Title or Id..." class="form-control" name="title" id="title" required="">
+      </div>
+      <label class="control-label col-sm-2">
+       <button type="reset" class="btn btn-success btn-block">Clear</button>
+      </label>
+      <label class="control-label col-sm-2"></label>
+    </div><br><br><br>
+</form>
+
   <div class="form-group">
 
   <label class="control-label col-sm-2"></label>
   <div class="col-sm-8">
 
-  <table class="table table-bordered">
+  <table class="table table-bordered" id="myTable">
     <thead>
       <tr>
         <th>Id</th>
@@ -26,6 +40,27 @@
 
     {% endfor %}
   </table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
 </div>
   <label class="control-label col-sm-2"></label>
   </div>

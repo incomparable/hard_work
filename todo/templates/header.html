@@ -18,26 +18,25 @@
       <a class="navbar-brand" href="#">TodoList</a>
     </div>
     <ul class="nav navbar-nav">
-      <!--<li class="active"><a href="#">Home</a></li>-->
-      <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Todo <span class="caret"></span></a>-->
-        <!--<ul class="dropdown-menu">-->
-          <!--<li><a href="/todo/add">Add Todo</a></li>-->
-          <!--<li><a href="/todo/get">Get Todo</a></li>-->
-          <!--<li><a href="/todo/delete">Delete Todo</a></li>-->
-          <!--<li><a href="/todo/update">Update Todo</a></li>-->
-        <!--</ul>-->
-      <!--</li>-->
-
-
       <li><a href="/todo/add">Add Todo</a></li>
       <li><a href="/todo/get">Get Todo</a></li>
       <li><a href="/todo/delete">Delete Todo</a></li>
       <li><a href="/todo/update">Update Todo</a></li>
-      <li><a href="/todo/feedback">Feedback</a></li>
+      <li><a href="/todo/feedback">Feedback</a></li></li>
+      <li><a href="/todo/d3">d3</a></li></li>
+      <li><a href="/todo/d3_data">d3 data</a></li></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 {% if user.is_authenticated %}
-      <li><a href="/todo/logout"><span class="glyphicon glyphicon-log-out"></span> {{username}}</a></li>
+      <li><a href="javascript:void(0);"> Welcome <b>{{request.user}}</b></a></li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"></span>Setting <span class="glyphicon glyphicon-user"></span></a>
+        <ul class="dropdown-menu"><hr>
+          <li><a href="/todo/password">Change Password</a></li><hr>
+          <li><a href="/todo/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </li>
+
       {% else %}
 
       <li><a href="/todo/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

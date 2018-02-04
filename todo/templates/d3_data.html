@@ -1,0 +1,66 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container"><hr><br><br><br><br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+<script type="text/javascript">
+    $.ajax({
+        url: "/todo/ajax/data/",
+
+        type:"GET",
+        contentType: "application/json",
+
+        data: {"todo": "todo"},
+        dataType: "json",
+
+        success: function (data) {
+
+     for(var i=0; i< data.length; i++)
+     {
+        var item = data[i];
+//        console.log("Title: " + item.title + ", date: " + item.TimeStamp);
+
+            alert("Title :" + item.title + ", Id: " + item.id);
+            }
+        },
+
+    });
+</script>
+
+
+<!--<script type="text/javascript">-->
+    <!--function handleChartDataFromServer(data)-->
+    <!--{-->
+     <!--var items = data._items;-->
+     <!--console.log("no. of items: " + items.length);-->
+     <!--var dataPoints = [];-->
+     <!--for(var i=0; i< items.length; i++)-->
+     <!--{-->
+        <!--var item = items[i];-->
+        <!--console.log("Title: " + item.title + ", date: " + item.TimeStamp);-->
+
+        <!--dataPoints.push({ x: new Date(item.TimeStamp), y: Math.floor((Math.random() * 100) + 1) });-->
+        <!--}-->
+     <!--var chart = new CanvasJS.Chart("chartContainer",-->
+     <!--{-->
+       <!--title: {-->
+            <!--text: "Survey Chart"-->
+            <!--},-->
+            <!--data:-->
+            <!--[{type: "line",-->
+            <!--dataPoints: dataPoints}]-->
+            <!--});-->
+      <!--chart.render();-->
+   <!--}-->
+      <!--$.get("https://fathomless-crag-93337.herokuapp.com/api/survey", function(data, status)-->
+      <!--{-->
+        <!--handleChartDataFromServer(data);-->
+        <!--});-->
+<!--</script>-->
+
+</div>
+
+{% include 'footer.html' %}

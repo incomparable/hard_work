@@ -8,11 +8,18 @@ urlpatterns = [
     url(r'^details/(?P<id>\w)/$', views.details, name='details'),
     url(r'^add/$', views.add, name='add'),
     url(r'^delete/$', views.delete, name='delete'),
-
     url(r'^update/$', views.update, name='update'),
     url(r'^feedback/$', views.feedback, name='feedback'),
-
     url(r'^signup/$', views.signup, name='signup'),
+    url(r'^success/$', views.success, name='success'),
+    url(r'^confirm/(?P<activation_key>\w+)/$', views.signup_confirm,name='signup_confirm'),
+    url(r'^password/$', views.change_password, name='change_password'),
     url(r'^login/$', views.login1, name='login'),
-    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^logout/$', views.logout1, name='logout'),
+    url(r'^d3/$', views.d3, name='d3'),
+    url(r'^d3_data/$', views.d3_data, name='d3_data'),
+    url(r'^ajax/data/$', views.ajax_data, name='ajax_data'),
+
 ]
+
+
