@@ -22,7 +22,10 @@
         {
         var item = data[i];
         console.log("Title: " + item.title + ", date: " + item.create_at);
-        dataPoints.push({ x: new Date(item.create_at), y: Math.floor((Math.random() * 100) + 1) });
+
+        <!--dataPoints.push({ x: new Date(item.create_at), y: Math.floor((Math.random() * 100) + 1) });-->
+
+        dataPoints.push({ x: new Date(item.create_at), y: item.id });
         }
 
         var chart = new CanvasJS.Chart("chartContainer",
