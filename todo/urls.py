@@ -16,8 +16,9 @@ urlpatterns = [
     url(r'^password/$', views.change_password, name='change_password'),
     url(r'^login/$', views.login1, name='login'),
     url(r'^logout/$', views.logout1, name='logout'),
-    url(r'^d3/$', views.d3, name='d3'),
-    url(r'^d3_data/$', views.d3_data, name='d3_data'),
+    # url(r'^delete_account/$', views.delete_account, name='delete_account'),
+
+    url(r'^chart/$', views.chart, name='chart'),
     url(r'^ajax/data/$', views.ajax_data, name='ajax_data'),
 
 ]

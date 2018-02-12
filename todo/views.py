@@ -103,12 +103,8 @@ def success(request):
     return render(request, 'successfully_signup.html')
 
 
-def d3(request):
-    return render(request, 'd3.html')
-
-
-def d3_data(request):
-    return render(request, 'd3_data.html')
+def chart(request):
+    return render(request, 'chart.html')
 
 
 @login_required(login_url='/todo/login/')

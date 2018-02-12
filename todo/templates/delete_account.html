@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+
+<div class="container">
+  <h2 style="color:grey;">Delete Todo</h2><hr><br><br><br><br>
+
+  <form class="form-horizontal" method="post">
+      {% csrf_token %}
+<center><p>Are you absolutely sure?<hr>
+Unexpected bad things will happen if you don’t read this!<br>
+This action cannot be undone. This will permanently delete the <b>{{request.user}}</b>.
+
+Please type in the name of the Account to confirm.</p></center><br>
+    <div class="form-group">
+      <label class="control-label col-sm-1"></label>
+      <label class="control-label col-sm-2" for="username">Account Holder Name :</label>
+      <div class="col-sm-6">
+          <input type="text" class="form-control" id="username" name="account" placeholder="Enter the Account holder name">
+      </div>
+      <label class="control-label col-sm-3"></label>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-6">
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% include 'footer.html' %}
