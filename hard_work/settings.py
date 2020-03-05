@@ -126,11 +126,11 @@ USE_L10N = True
 USE_TZ = True
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gauravkumarall@gmail.com'
-EMAIL_HOST_PASSWORD = '13mcl007@'
+EMAIL_HOST_USER = 'demo'
+EMAIL_HOST_PASSWORD = 'demo@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'gauravkumarall@gmail.com'
+DEFAULT_FROM_EMAIL = 'demo@gmail.com'
 
 
 # Static files (CSS, JavaScript, Images)
